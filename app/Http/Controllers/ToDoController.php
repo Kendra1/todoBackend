@@ -42,7 +42,6 @@ class ToDoController extends Controller
         $user = $request->user();
         $validated = $request->validated();
         
-        info($user);
         return Todo::create([
             'title' => $validated['title'],
             'description' => $validated['description'],
@@ -86,8 +85,6 @@ class ToDoController extends Controller
         $user = $request->user();
 
         $todo = Todo::find($id);
-        
-        info($todo);
 
         $todo->fill($request->validated())->save();   
 

@@ -23,7 +23,6 @@ class HomeController extends Controller
      */
     public function index($request)
     {
-        info($request->auth->user);
         return view('home');
     }
 }

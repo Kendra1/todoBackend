@@ -25,8 +25,6 @@ class TodoValidator extends FormRequest
      */
     public function rules()
     {
-        $priorities = array('LOW', 'MEDIUM', 'HIGH');
-        info($priorities);
         return [
             'title' => 'required|string|max:255',
             'description' => 'string|max:255',
