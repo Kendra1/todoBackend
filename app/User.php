@@ -20,6 +20,10 @@ class User extends Authenticatable implements JWTSubject
         'first_name', 'last_name', 'email', 'password', 'company'
     ];
 
+    public function todos(){
+        return $this->hasMany('App\ToDo');
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *

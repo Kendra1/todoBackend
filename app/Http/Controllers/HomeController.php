@@ -21,8 +21,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index($request)
     {
+        info($request->auth->user);
         return view('home');
     }
 }

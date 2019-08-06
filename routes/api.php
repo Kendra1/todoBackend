@@ -25,4 +25,6 @@ Route::middleware('jwt.auth')->get('users', function () {
 
 Route::post('create', 'Auth\RegisterController@register');
 
+Route::resource('todo', 'ToDoController')->middleware('jwt.auth');
+
 
