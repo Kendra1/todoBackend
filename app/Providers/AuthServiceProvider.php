@@ -16,12 +16,6 @@ class AuthServiceProvider extends ServiceProvider
         // 'App\Model' => 'App\Policies\ModelPolicy',
     ];
 
-    public function register() {
-        $this->app->bind('LoginService', function () {
-            return new LoginService();
-        });
-    }
-
     /**
      * Register any authentication / authorization services.
      *

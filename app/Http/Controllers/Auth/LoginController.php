@@ -29,16 +29,15 @@ class LoginController extends Controller
      */
 
     protected $redirectTo = '/home';
-
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(LoginService $loginService)
     {
         $this->middleware('guest')->except('logout');
-       
+        $this->loginService = $loginService;
 
     }
 
@@ -46,7 +45,7 @@ class LoginController extends Controller
         $credentials = request(['email', 'password']);
         $token = auth('api')->attempt($credentials);
         
-        return app('App\Http\Services\Auth\LoginService')->loggingIn($credentials, $token);
+        return $this->loginService->loggingIn($credentials, $token);
         
         
     }
