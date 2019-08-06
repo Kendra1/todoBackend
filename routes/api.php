@@ -17,13 +17,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('login', 'Auth\LoginController@login');
-
 Route::middleware('jwt.auth')->get('users', function () {
     return auth('api')->user();
 });
 
-Route::post('create', 'Auth\RegisterController@register');
+
+Route::post('login', 'Auth\LoginController@login');
+
+Route::post('register', 'Auth\RegisterController@register');
 
 Route::resource('todo', 'ToDoController')->middleware('jwt.auth');
 
