@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;  
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -16,6 +16,12 @@ class AuthServiceProvider extends ServiceProvider
         // 'App\Model' => 'App\Policies\ModelPolicy',
     ];
 
+    public function register() {
+        $this->app->bind('LoginService', function () {
+            return new LoginService();
+        });
+    }
+
     /**
      * Register any authentication / authorization services.
      *
@@ -24,7 +30,6 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
         //
     }
 }
