@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class TodoValidator extends FormRequest
 {
@@ -24,10 +25,12 @@ class TodoValidator extends FormRequest
      */
     public function rules()
     {
+        $priorities = array('LOW', 'MEDIUM', 'HIGH');
+        info($priorities);
         return [
-            'title' => 'required|string|max:6',
-            'description' => 'string',
-            'priority' => 'required|Rule::in(config(enums.priorities))',
+            'title' => 'required|string|max:255',
+            'description' => 'string|max:255',
+            'priority' => 'required|in:LOW,MEDIUM,HIGH',
             'completed' => 'required|boolean'
             
         ];
