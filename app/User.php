@@ -16,6 +16,10 @@ class User extends Authenticatable implements JWTSubject
      *
      * @var array
      */
+    
+    public function setPasswordAttribute($value){
+        $this->attributes['password'] = bcrypt($value);
+    }
     protected $fillable = [
         'first_name', 'last_name', 'email', 'password', 'company'
     ];

@@ -52,7 +52,7 @@ class RegisterController extends Controller
      * @return \App\User
      */
     protected function register(RegistrationValidator $request)
-    {
-        return User::create($request->validated());
+    {   
+        return User::create($request->validated()); 
     }
 }
