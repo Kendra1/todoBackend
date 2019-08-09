@@ -103,6 +103,6 @@ class ToDoController extends Controller
     {
         $todo = Todo::find($id);
         $todo -> delete();
-        return $todo;
+        return $id;
     }
 }
