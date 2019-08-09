@@ -41,7 +41,9 @@ class ToDoController extends Controller
     {   
         $user = $request->user();
         $validated = $request->validated();
-        
+        if(!$validated['description']){
+            $validated['description'] = "";
+        }
         return Todo::create([
             'title' => $validated['title'],
             'description' => $validated['description'],

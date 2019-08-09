@@ -27,7 +27,7 @@ class TodoValidator extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
-            'description' => 'string|max:255',
+            'description' => 'max:255',
             'priority' => 'required|in:LOW,MEDIUM,HIGH',
             'completed' => 'required|boolean'
             
